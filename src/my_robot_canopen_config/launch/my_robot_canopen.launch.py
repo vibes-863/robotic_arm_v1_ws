@@ -9,7 +9,7 @@ def generate_launch_description():
     master_bin_path = os.path.join(
         get_package_share_directory("my_robot_canopen_config"),
         "config",
-        "my_robot_bus_config",
+        "robotic_arm_bus_config",
         "master.bin",
     )
     if not os.path.exists(master_bin_path):
@@ -26,14 +26,14 @@ def generate_launch_description():
             "master_config": os.path.join(
                 get_package_share_directory("my_robot_canopen_config"),
                 "config",
-                "my_robot_bus_config",
+                "robotic_arm_bus_config",
                 "master.dcf",
             ),
             "master_bin": master_bin_path,
             "bus_config": os.path.join(
                 get_package_share_directory("my_robot_canopen_config"),
                 "config",
-                "my_robot_bus_config",
+                "robotic_arm_bus_config",
                 "bus.yml",
             ),
             "can_interface_name": "can0",

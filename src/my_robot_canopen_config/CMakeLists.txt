@@ -14,7 +14,7 @@ find_package(canopen_proxy_driver REQUIRED)
 find_package(lely_core_libraries REQUIRED)
 
 
-cogen_dcf(my_robot_bus_config)
+cogen_dcf(robotic_arm_bus_config)
 
 install(DIRECTORY
   launch/
