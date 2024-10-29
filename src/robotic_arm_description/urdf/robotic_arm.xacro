@@ -185,7 +185,6 @@
   <axis xyz="1.0 0.0 0.0"/>
   <limit upper="0.108" lower="-0.054" effort="100" velocity="1.0"/>
   <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-  <controllerType>ros2_controllers/JointTrajectoryController</controllerType>
 </joint>
 
 <joint name="shoulder_link_to_taco" type="revolute">
@@ -195,7 +194,6 @@
   <axis xyz="-1.0 -0.0 -0.0"/>
   <limit upper="1.637119" lower="-0.261799" effort="100" velocity="1.0"/>
   <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-  <controllerType>ros2_controllers/JointTrajectoryController</controllerType>
 </joint>
 
 <joint name="elbow_link_to_shoulder_link" type="revolute">
@@ -205,7 +203,6 @@
   <axis xyz="-1.0 0.0 -0.0"/>
   <limit upper="0.959931" lower="-1.047198" effort="100" velocity="1.0"/>
   <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-  <controllerType>ros2_controllers/JointTrajectoryController</controllerType>
 </joint>
 
 <joint name="bevel_housing_to_elbow_link" type="revolute">
@@ -215,7 +212,6 @@
   <axis xyz="-1.0 0.0 -0.0"/>
   <limit upper="1.570796" lower="-1.570796" effort="100" velocity="1.0"/>
   <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-  <controllerType>ros2_controllers/JointTrajectoryController</controllerType>
 </joint>
 
 <joint name="wrist_link_to_bevel_housing" type="revolute">
@@ -225,7 +221,6 @@
   <axis xyz="0.0 -0.999855 -0.017012"/>
   <limit upper="3.141593" lower="0.0" effort="100" velocity="1.0"/>
   <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-  <controllerType>ros2_controllers/JointTrajectoryController</controllerType>
 </joint>
 
 <joint name="end_effector_base_to_wrist_link" type="fixed">
@@ -241,7 +236,6 @@
   <axis xyz="1.0 0.0 -0.0"/>
   <limit upper="0.25" lower="0.0" effort="100" velocity="1.0"/>
   <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-  <controllerType>ros2_controllers/JointTrajectoryController</controllerType>
 </joint>
 
 </robot>
