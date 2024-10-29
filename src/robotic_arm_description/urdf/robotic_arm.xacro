@@ -19,14 +19,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="grey"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -40,14 +40,14 @@
   <visual>
     <origin xyz="-0.25 -0.023 -0.0275" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.25 -0.023 -0.0275" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -61,14 +61,14 @@
   <visual>
     <origin xyz="-0.2763 -0.054 -0.13" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="grey"/>
   </visual>
   <collision>
     <origin xyz="-0.2763 -0.054 -0.13" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -82,14 +82,14 @@
   <visual>
     <origin xyz="-0.2413 -0.020061 -0.635362" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="grey"/>
   </visual>
   <collision>
     <origin xyz="-0.2413 -0.020061 -0.635362" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -103,14 +103,14 @@
   <visual>
     <origin xyz="-0.274 -0.564482 -0.644625" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.274 -0.564482 -0.644625" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -124,14 +124,14 @@
   <visual>
     <origin xyz="-0.2235 -0.619234 -0.645556" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="grey"/>
   </visual>
   <collision>
     <origin xyz="-0.2235 -0.619234 -0.645556" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -145,14 +145,14 @@
   <visual>
     <origin xyz="-0.16875 -0.630062 -0.655742" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="-0.16875 -0.630062 -0.655742" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -166,14 +166,14 @@
   <visual>
     <origin xyz="-0.15025 -0.641231 -0.645931" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="grey"/>
   </visual>
   <collision>
     <origin xyz="-0.15025 -0.641231 -0.645931" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robotic_arm_description)/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robotic_arm_description/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
