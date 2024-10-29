@@ -10,7 +10,7 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    share_dir = get_package_share_directory('robotic_arm_description')
+    share_dir = get_package_share_directory('my_robot_description')
 
     xacro_file = os.path.join(share_dir, 'urdf', 'robotic_arm.xacro')
     robot_description_config = xacro.process_file(xacro_file)

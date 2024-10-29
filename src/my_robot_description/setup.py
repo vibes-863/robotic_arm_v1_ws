@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'robotic_arm_description'
+package_name = 'my_robot_description'
 
 setup(
     name=package_name,
