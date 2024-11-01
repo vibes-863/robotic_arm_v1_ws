@@ -10,7 +10,7 @@ master:
   heartbeat_consumer: true
 
 defaults:
-  dcf: "ZeroErr_Driver_V1.5.eds"
+  dcf: "ZeroErr_Driver_V1_5.eds"
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   period: 10  # in milliseconds; should match master's SYNC period
