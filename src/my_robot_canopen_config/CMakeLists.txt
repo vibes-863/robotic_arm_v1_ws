@@ -14,12 +14,7 @@ find_package(canopen_proxy_driver REQUIRED)
 find_package(lely_core_libraries REQUIRED)
 
 
-cogen_dcf(bus_config)
-
-install(DIRECTORY
-  config/
-  DESTINATION share/${PROJECT_NAME}/config/
-)
+cogen_dcf(my_robot_bus_config)
 
 install(DIRECTORY
   launch/
