@@ -15,8 +15,8 @@ EDSVersion=1.5
 VendorName=ZEROERR CONTROL
 VendorNumber=0x5A65726F
 ProductName=eDriver
-ProductNumber=0x26483052
-RevisionNumber=0x00020111
+ProductNumber=0x00006000
+RevisionNumber=0x02000001
 OrderCode=0
 BaudRate_10=0
 BaudRate_20=0
@@ -92,7 +92,7 @@ ParameterName=Vendor ID
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x5A656F72
+DefaultValue=0x5A65726F
 PDOMapping=0
 
 [1018sub2]
@@ -108,7 +108,7 @@ ParameterName=Revision number
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00020111
+DefaultValue=0x02000001
 PDOMapping=0
 ObjFlags=0
 
