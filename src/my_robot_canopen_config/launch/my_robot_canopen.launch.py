@@ -36,7 +36,7 @@ def generate_launch_description():
                 "my_robot_bus_config",
                 "bus.yml",
             ),
-            "can_interface_name": "vcan0",
+            "can_interface_name": "can0",
         }.items(),
     )
 
