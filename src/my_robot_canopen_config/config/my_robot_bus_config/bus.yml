@@ -2,7 +2,7 @@ options:
   dcf_path: "@BUS_CONFIG_PATH@"
 
 master:
-  node_id: 1
+  node_id: 5
   driver: "ros2_canopen::MasterDriver"
   package: "canopen_master_driver"
   baudrate: 1000  # in kbps
@@ -59,10 +59,10 @@ defaults:
 
 nodes:
   shoulder_motor:
-    node_id: 2
+    node_id: 1
   elbow_motor:
-    node_id: 3
+    node_id: 2
   wrist_right_motor:
-    node_id: 4
+    node_id: 3
   wrist_left_motor:
-    node_id: 5
+    node_id: 4
