@@ -60,7 +60,7 @@ ParameterName=Device Type
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x420192
+DefaultValue=0x04020192
 PDOMapping=0
 
 [1001]
@@ -92,7 +92,7 @@ ParameterName=Vendor ID
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x5A65726F
+DefaultValue=0x5A656F72
 PDOMapping=0
 
 [1018sub2]
@@ -100,7 +100,7 @@ ParameterName=Product code
 ObjectType=0x7
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x26483052
+DefaultValue=0x00006000
 PDOMapping=0
 
 [1018sub3]
