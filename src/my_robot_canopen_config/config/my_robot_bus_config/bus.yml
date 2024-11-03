@@ -16,8 +16,8 @@ defaults:
   period: 10  # in milliseconds; should match master's SYNC period
   switching_state: 2  # 2 is "Ready to switch on"; might need to change to 4 ("Operation Enabled")
   position_mode: 7  # Interpolated Position Mode; set to 8 for Cyclic Synchronous Position Mode
-  scale_pos_from_dev: 83443.02680376362180  # Encoder counts to radians (2^19 / 2π)
-  scale_pos_to_dev: 0.00001198422490  # Radians to encoder counts (2π / 2^19)
+  scale_pos_to_dev: 83443.02680376362180  # Encoder counts to radians (2^19 / 2π)
+  scale_pos_from_dev: 0.00001198422490  # Radians to encoder counts (2π / 2^19)
   sdo:
     - {index: 0x6081, sub_index: 0, value: 5566}  # Set Velocity
     - {index: 0x6083, sub_index: 0, value: 5566}  # Set Acceleration
