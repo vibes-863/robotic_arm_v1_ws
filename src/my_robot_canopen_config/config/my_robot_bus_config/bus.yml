@@ -14,7 +14,7 @@ defaults:
   driver: "ros2_canopen::Cia402Driver"
   package: "canopen_402_driver"
   period: 10  # in milliseconds; should match master's SYNC period
-  diagnostics:
+  diagnostics:  # enable this if you want to see diagnostic msgs on the topic /diagnostics
     enable: true
     period: 1000
   scale_pos_to_dev: 83443.02680376362180  # Encoder counts to radians (2^19 / 2π)
