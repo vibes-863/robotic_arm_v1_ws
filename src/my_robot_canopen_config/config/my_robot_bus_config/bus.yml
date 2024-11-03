@@ -23,8 +23,6 @@ defaults:
     - {index: 0x6081, sub_index: 0, value: 5566}  # Set Velocity
     - {index: 0x6083, sub_index: 0, value: 5566}  # Set Acceleration
     - {index: 0x6084, sub_index: 0, value: 5566}  # Set Deceleration
-    - {index: 0x60C2, sub_index: 1, value: 10}  # Set interpolation time for cyclic modes to 10 ms to match SYNC
-    - {index: 0x60C2, sub_index: 2, value: -3}  # Set base 10^-3s (milliseconds)
   tpdo:
     1:
       enabled: true
