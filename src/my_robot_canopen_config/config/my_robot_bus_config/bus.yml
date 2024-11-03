@@ -17,6 +17,8 @@ defaults:
   diagnostics:  # enable this if you want to see diagnostic msgs on the topic /diagnostics
     enable: true
     period: 1000
+  switching_state: 2 # 2 is "Ready to switch on"; might need to change to 4 ("Operation Enabled")
+  position_mode: 8  # set to 8 for Cyclic Synchronous Position Mode
   scale_pos_to_dev: 83443.02680376362180  # Encoder counts to radians (2^19 / 2π)
   scale_pos_from_dev: 0.00001198422490  # Radians to encoder counts (2π / 2^19)
   sdo:
