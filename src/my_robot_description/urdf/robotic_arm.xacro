@@ -176,7 +176,7 @@
     <origin xyz="-0.0505 0.054752 0.000931" rpy="0 0 0"/>
     <parent link="bevel_housing_1"/>
     <child link="wrist_link_1"/>
-    <axis xyz="0.0 -0.999855 -0.017012"/>
+    <axis xyz="0.0 -0.1 0.0"/>
     <limit upper="3.141593" lower="0.0" effort="100" velocity="1.0"/>
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
