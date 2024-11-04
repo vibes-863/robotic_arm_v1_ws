@@ -1,241 +1,303 @@
 <?xml version="1.0" ?>
 <robot name="robotic_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find my_robot_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find my_robot_description)/urdf/robotic_arm.gazebo" />
+  <xacro:include filename="$(find my_robot_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find my_robot_description)/urdf/robotic_arm.gazebo" />
 
-<link name="world"/>
-<joint name="world_to_base" type="fixed">
-  <parent link="world"/>
-  <child link="base_link"/>
-</joint>
+  <link name="world"/>
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
 
-<link name="base_link">
-  <inertial>
-    <origin xyz="0.24999999999999986 0.052676071415861433 0.00973156895021169" rpy="0 0 0"/>
-    <mass value="6.361355869674016"/>
-    <inertia ixx="0.006221" iyy="0.133083" izz="0.138589" ixy="-3.2e-05" iyz="-1e-05" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="grey"/>
-  </visual>
-  <collision>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.24999999999999986 0.052676071415861433 0.00973156895021169" rpy="0 0 0"/>
+      <mass value="6.361355869674016"/>
+      <inertia ixx="0.006221" iyy="0.133083" izz="0.138589" ixy="-3.2e-05" iyz="-1e-05" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="taco_1">
-  <inertial>
-    <origin xyz="0.07818258285943669 0.030946807902658094 0.10242477267153019" rpy="0 0 0"/>
-    <mass value="5.738754153494885"/>
-    <inertia ixx="0.006906" iyy="0.008611" izz="0.008628" ixy="8e-06" iyz="1e-05" ixz="6e-06"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.25 -0.023 -0.0275" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.25 -0.023 -0.0275" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="taco_1">
+    <inertial>
+      <origin xyz="0.07818258285943669 0.030946807902658094 0.10242477267153019" rpy="0 0 0"/>
+      <mass value="5.738754153494885"/>
+      <inertia ixx="0.006906" iyy="0.008611" izz="0.008628" ixy="8e-06" iyz="1e-05" ixz="6e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.25 -0.023 -0.0275" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.25 -0.023 -0.0275" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/taco_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="shoulder_link_1">
-  <inertial>
-    <origin xyz="-0.05018783065225829 -0.010520603885684356 0.1566531259374006" rpy="0 0 0"/>
-    <mass value="3.3548405040456655"/>
-    <inertia ixx="0.11479" iyy="0.117901" izz="0.005483" ixy="-0.000124" iyz="0.007585" ixz="0.001853"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.2763 -0.054 -0.13" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="grey"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.2763 -0.054 -0.13" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <joint name="taco_to_base_link" type="prismatic">
+    <origin xyz="0.25 0.023 0.0275" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="taco_1"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <limit upper="0.108" lower="-0.054" effort="100" velocity="1.0"/>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
 
-<link name="elbow_link_1">
-  <inertial>
-    <origin xyz="-0.018002693952802074 0.4817560376269243 0.008183550892946423" rpy="0 0 0"/>
-    <mass value="5.674462941226388"/>
-    <inertia ixx="0.127102" iyy="0.03706" izz="0.160555" ixy="-9e-06" iyz="-0.002092" ixz="2e-06"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.2413 -0.020061 -0.635362" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="grey"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.2413 -0.020061 -0.635362" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="shoulder_link_1">
+    <inertial>
+      <origin xyz="-0.05018783065225829 -0.010520603885684356 0.1566531259374006" rpy="0 0 0"/>
+      <mass value="3.3548405040456655"/>
+      <inertia ixx="0.11479" iyy="0.117901" izz="0.005483" ixy="-0.000124" iyz="0.007585" ixz="0.001853"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.2763 -0.054 -0.13" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.2763 -0.054 -0.13" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/shoulder_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="bevel_housing_1">
-  <inertial>
-    <origin xyz="-0.050521734924667244 0.006224648748534123 0.0001121822795571159" rpy="0 0 0"/>
-    <mass value="1.1608192080889064"/>
-    <inertia ixx="0.000726" iyy="0.001281" izz="0.001731" ixy="-1e-06" iyz="-8e-06" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.274 -0.564482 -0.644625" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.274 -0.564482 -0.644625" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <joint name="shoulder_link_to_taco" type="revolute">
+    <origin xyz="0.0263 0.031 0.1025" rpy="0 0 0"/>
+    <parent link="taco_1"/>
+    <child link="shoulder_link_1"/>
+    <axis xyz="-1.0 -0.0 -0.0"/>
+    <limit upper="1.637119" lower="-0.261799" effort="100" velocity="1.0"/>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
 
-<link name="wrist_link_1">
-  <inertial>
-    <origin xyz="0.020076802525326953 0.005499043225183686 9.3859303777033e-05" rpy="0 0 0"/>
-    <mass value="0.4521871294957428"/>
-    <inertia ixx="3.9e-05" iyy="0.001326" izz="0.001297" ixy="0.0" iyz="1e-06" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.2235 -0.619234 -0.645556" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="grey"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.2235 -0.619234 -0.645556" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="elbow_link_1">
+    <inertial>
+      <origin xyz="-0.018002693952802074 0.4817560376269243 0.008183550892946423" rpy="0 0 0"/>
+      <mass value="5.674462941226388"/>
+      <inertia ixx="0.127102" iyy="0.03706" izz="0.160555" ixy="-9e-06" iyz="-0.002092" ixz="2e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.2413 -0.020061 -0.635362" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.2413 -0.020061 -0.635362" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/elbow_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<link name="end_effector_base_1">
-  <inertial>
-    <origin xyz="0.019771621492249786 0.06274057954397616 -0.008933968159763883" rpy="0 0 0"/>
-    <mass value="2.4935088831818693"/>
-    <inertia ixx="0.007041" iyy="0.037017" izz="0.043618" ixy="0.009997" iyz="-0.000112" ixz="0.00017"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.16875 -0.630062 -0.655742" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.16875 -0.630062 -0.655742" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <joint name="elbow_link_to_shoulder_link" type="revolute">
+    <origin xyz="-0.035 -0.033939 0.505362" rpy="0 0 0"/>
+    <parent link="shoulder_link_1"/>
+    <child link="elbow_link_1"/>
+    <axis xyz="-1.0 0.0 -0.0"/>
+    <limit upper="0.959931" lower="-1.047198" effort="100" velocity="1.0"/>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
 
-<link name="moving_claw_1">
-  <inertial>
-    <origin xyz="0.01597180368606757 0.07138677241380087 0.002080983860352159" rpy="0 0 0"/>
-    <mass value="1.0027159697742831"/>
-    <inertia ixx="0.001794" iyy="0.00019" izz="0.001779" ixy="-1.8e-05" iyz="-8.4e-05" ixz="-1e-06"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.15025 -0.641231 -0.645931" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="grey"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.15025 -0.641231 -0.645931" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="package://my_robot_description/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
+  <link name="bevel_housing_1">
+    <inertial>
+      <origin xyz="-0.050521734924667244 0.006224648748534123 0.0001121822795571159" rpy="0 0 0"/>
+      <mass value="1.1608192080889064"/>
+      <inertia ixx="0.000726" iyy="0.001281" izz="0.001731" ixy="-1e-06" iyz="-8e-06" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.274 -0.564482 -0.644625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.274 -0.564482 -0.644625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/bevel_housing_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<joint name="taco_to_base_link" type="prismatic">
-  <origin xyz="0.25 0.023 0.0275" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="taco_1"/>
-  <axis xyz="1.0 0.0 0.0"/>
-  <limit upper="0.108" lower="-0.054" effort="100" velocity="1.0"/>
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-</joint>
+  <joint name="bevel_housing_to_elbow_link" type="revolute">
+    <origin xyz="0.0327 0.544421 0.009263" rpy="0 0 0"/>
+    <parent link="elbow_link_1"/>
+    <child link="bevel_housing_1"/>
+    <axis xyz="-1.0 0.0 -0.0"/>
+    <limit upper="1.570796" lower="-1.570796" effort="100" velocity="1.0"/>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
 
-<joint name="shoulder_link_to_taco" type="revolute">
-  <origin xyz="0.0263 0.031 0.1025" rpy="0 0 0"/>
-  <parent link="taco_1"/>
-  <child link="shoulder_link_1"/>
-  <axis xyz="-1.0 -0.0 -0.0"/>
-  <limit upper="1.637119" lower="-0.261799" effort="100" velocity="1.0"/>
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-</joint>
+  <link name="wrist_link_1">
+    <inertial>
+      <origin xyz="0.020076802525326953 0.005499043225183686 9.3859303777033e-05" rpy="0 0 0"/>
+      <mass value="0.4521871294957428"/>
+      <inertia ixx="3.9e-05" iyy="0.001326" izz="0.001297" ixy="0.0" iyz="1e-06" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.2235 -0.619234 -0.645556" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.2235 -0.619234 -0.645556" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/wrist_link_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<joint name="elbow_link_to_shoulder_link" type="revolute">
-  <origin xyz="-0.035 -0.033939 0.505362" rpy="0 0 0"/>
-  <parent link="shoulder_link_1"/>
-  <child link="elbow_link_1"/>
-  <axis xyz="-1.0 0.0 -0.0"/>
-  <limit upper="0.959931" lower="-1.047198" effort="100" velocity="1.0"/>
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-</joint>
+  <joint name="wrist_link_to_bevel_housing" type="revolute">
+    <origin xyz="-0.0505 0.054752 0.000931" rpy="0 0 0"/>
+    <parent link="bevel_housing_1"/>
+    <child link="wrist_link_1"/>
+    <axis xyz="0.0 -0.999855 -0.017012"/>
+    <limit upper="3.141593" lower="0.0" effort="100" velocity="1.0"/>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
 
-<joint name="bevel_housing_to_elbow_link" type="revolute">
-  <origin xyz="0.0327 0.544421 0.009263" rpy="0 0 0"/>
-  <parent link="elbow_link_1"/>
-  <child link="bevel_housing_1"/>
-  <axis xyz="-1.0 0.0 -0.0"/>
-  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="1.0"/>
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-</joint>
+  <link name="end_effector_base_1">
+    <inertial>
+      <origin xyz="0.019771621492249786 0.06274057954397616 -0.008933968159763883" rpy="0 0 0"/>
+      <mass value="2.4935088831818693"/>
+      <inertia ixx="0.007041" iyy="0.037017" izz="0.043618" ixy="0.009997" iyz="-0.000112" ixz="0.00017"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.16875 -0.630062 -0.655742" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.16875 -0.630062 -0.655742" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/end_effector_base_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<joint name="wrist_link_to_bevel_housing" type="revolute">
-  <origin xyz="-0.0505 0.054752 0.000931" rpy="0 0 0"/>
-  <parent link="bevel_housing_1"/>
-  <child link="wrist_link_1"/>
-  <axis xyz="0.0 -0.999855 -0.017012"/>
-  <limit upper="3.141593" lower="0.0" effort="100" velocity="1.0"/>
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-</joint>
+  <joint name="end_effector_base_to_wrist_link" type="fixed">
+    <origin xyz="-0.05475 0.010828 0.010186" rpy="0 0 0"/>
+    <parent link="wrist_link_1"/>
+    <child link="end_effector_base_1"/>
+  </joint>
 
-<joint name="end_effector_base_to_wrist_link" type="fixed">
-  <origin xyz="-0.05475 0.010828 0.010186" rpy="0 0 0"/>
-  <parent link="wrist_link_1"/>
-  <child link="end_effector_base_1"/>
-</joint>
+  <link name="moving_claw_1">
+    <inertial>
+      <origin xyz="0.01597180368606757 0.07138677241380087 0.002080983860352159" rpy="0 0 0"/>
+      <mass value="1.0027159697742831"/>
+      <inertia ixx="0.001794" iyy="0.00019" izz="0.001779" ixy="-1.8e-05" iyz="-8.4e-05" ixz="-1e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.15025 -0.641231 -0.645931" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.15025 -0.641231 -0.645931" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/moving_claw_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
 
-<joint name="moving_claw_to_end_effector_base" type="prismatic">
-  <origin xyz="-0.0185 0.011169 -0.009811" rpy="0 0 0"/>
-  <parent link="end_effector_base_1"/>
-  <child link="moving_claw_1"/>
-  <axis xyz="1.0 0.0 -0.0"/>
-  <limit upper="0.25" lower="0.0" effort="100" velocity="1.0"/>
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-</joint>
+  <joint name="moving_claw_to_end_effector_base" type="prismatic">
+    <origin xyz="-0.0185 0.011169 -0.009811" rpy="0 0 0"/>
+    <parent link="end_effector_base_1"/>
+    <child link="moving_claw_1"/>
+    <axis xyz="1.0 0.0 -0.0"/>
+    <limit upper="0.25" lower="0.0" effort="100" velocity="1.0"/>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+
+  <!-- Transmissions -->
+  <!-- Linear Actuator for Base -->
+  <transmission name="taco_to_base_link_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="taco_to_base_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="base_linear_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Shoulder Joint -->
+  <transmission name="shoulder_link_to_taco_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_link_to_taco">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Elbow Joint -->
+  <transmission name="elbow_link_to_shoulder_link_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_link_to_shoulder_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Differential Transmission for Wrist -->
+  <transmission name="wrist_differential_transmission">
+    <type>transmission_interface/DifferentialTransmission</type>
+    <joint name="bevel_housing_to_elbow_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <joint name="wrist_link_to_bevel_housing">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_left_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <actuator name="wrist_right_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Linear Actuator for Claw -->
+  <transmission name="moving_claw_to_end_effector_base_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="moving_claw_to_end_effector_base">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="claw_linear_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
 </robot>
