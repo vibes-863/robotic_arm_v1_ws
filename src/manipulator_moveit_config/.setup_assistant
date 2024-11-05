@@ -1,6 +1,6 @@
 moveit_setup_assistant_config:
   urdf:
-    package: robotic_arm_description
+    package: my_robot_description
     relative_path: urdf/robotic_arm.xacro
   srdf:
     relative_path: config/robotic_arm.srdf
