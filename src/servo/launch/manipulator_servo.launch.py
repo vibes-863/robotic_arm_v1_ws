@@ -36,7 +36,7 @@ def load_yaml(package_name, file_path):
 def generate_launch_description():
     moveit_config = (
         MoveItConfigsBuilder(robot_name="manipulator",
-        package_name="manipulator_moveit_config")
+        package_name="my_robot_moveit_config")
         .robot_description(file_path="config/robotic_arm.urdf.xacro")
         .robot_description_semantic(file_path="config/robotic_arm.srdf")
         .robot_description_kinematics(file_path="config/kinematics.yaml")
@@ -70,7 +70,7 @@ def generate_launch_description():
 
     # ros2_control using FakeSystem as hardware
     ros2_controllers_path = os.path.join(
-        get_package_share_directory("manipulator_moveit_config"),
+        get_package_share_directory("my_robot_moveit_config"),
         "config",
         "ros2_controllers.yaml",
     )
