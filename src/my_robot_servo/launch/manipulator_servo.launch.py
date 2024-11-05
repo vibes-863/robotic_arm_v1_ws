@@ -35,7 +35,7 @@ def load_yaml(package_name, file_path):
 
 def generate_launch_description():
     moveit_config = (
-        MoveItConfigsBuilder(robot_name="manipulator",
+        MoveItConfigsBuilder(robot_name="robotic_arm_v1",
         package_name="my_robot_moveit_config")
         .robot_description(file_path="config/robotic_arm.urdf.xacro")
         .robot_description_semantic(file_path="config/robotic_arm.srdf")
