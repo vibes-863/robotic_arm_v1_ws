@@ -47,14 +47,14 @@ def generate_launch_description():
 
     # Get parameters for the Servo node
     servo_params = {
-        "moveit_servo": ParameterBuilder("servo")
+        "moveit_servo": ParameterBuilder("my_robot_servo")
         .yaml("config/servo_parameters_simulated.yaml")
         .to_dict()
     }
 
     # RViz
     rviz_config_file = (
-        get_package_share_directory("servo") + "/config/rviz_config.rviz"
+        get_package_share_directory("my_robot_servo") + "/config/rviz_config.rviz"
     )
     rviz_node = Node(
         package="rviz2",
@@ -131,8 +131,8 @@ def generate_launch_description():
                 parameters=[{"child_frame_id": "/base_link", "frame_id": "/world"}],
             ),
             ComposableNode(
-                package="servo",
-                plugin="servo::JoyToServoPub",
+                package="my_robot_servo",
+                plugin="my_robot_servo::JoyToServoPub",
                 name="controller_to_servo_node",
             ),
             ComposableNode(

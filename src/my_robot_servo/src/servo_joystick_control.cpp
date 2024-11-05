@@ -115,7 +115,7 @@ void updateCmdFrame(std::string& frame_name, const std::vector<int>& buttons)
     frame_name = EEF_FRAME_ID;
 }
 
-namespace servo
+namespace my_robot_servo
 {
 class JoyToServoPub : public rclcpp::Node
 {
@@ -228,8 +228,8 @@ private:
   std::thread collision_pub_thread_;
 };  // class JoyToServoPub
 
-}  // namespace moveit_servo
+}  // namespace my_robot_servo
 
 // Register the component with class_loader
 #include <rclcpp_components/register_node_macro.hpp>
-RCLCPP_COMPONENTS_REGISTER_NODE(servo::JoyToServoPub)
+RCLCPP_COMPONENTS_REGISTER_NODE(my_robot_servo::JoyToServoPub)

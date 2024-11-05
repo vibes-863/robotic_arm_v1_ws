@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(servo)
+project(my_robot_servo)
 
 find_package(ament_cmake REQUIRED)
 find_package(moveit_common REQUIRED)
@@ -28,10 +28,10 @@ foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
   find_package(${Dependency} REQUIRED)
 endforeach()
 
-# Add library for servo controller input
+# Add library for my_robot_servo controller input
 add_library(${SERVO_CONTROLLER_INPUT} SHARED src/servo_joystick_control.cpp)
 ament_target_dependencies(${SERVO_CONTROLLER_INPUT} ${THIS_PACKAGE_INCLUDE_DEPENDS})
-rclcpp_components_register_nodes(${SERVO_CONTROLLER_INPUT} "servo::JoyToServoPub")
+rclcpp_components_register_nodes(${SERVO_CONTROLLER_INPUT} "my_robot_servo::JoyToServoPub")
 
 #############
 ## Install ##
