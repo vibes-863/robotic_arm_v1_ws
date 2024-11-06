@@ -238,7 +238,7 @@
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
 
-  <!-- Transmissions -->
+  <!-- Transmissions for gazebo-->
   <!-- Linear Actuator for Base -->
   <transmission name="taco_to_base_link_transmission">
     <type>transmission_interface/SimpleTransmission</type>
