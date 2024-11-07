@@ -1,0 +1,9 @@
+<library path="canopen_zeroerr_control">
+  <class name="canopen_zeroerr_control/CanopenZeroerrControlHardware"
+         type="canopen_zeroerr_control::CanopenZeroerrControlHardware"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      canopen_zeroerr_control hardware interface.
+    </description>
+  </class>
+</library>
