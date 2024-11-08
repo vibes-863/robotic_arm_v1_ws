@@ -45,6 +45,12 @@ def generate_launch_description():
         arguments=["forward_position_controller", "--controller-manager", "/controller_manager"],
     )
 
+    arm_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["arm_controller", "--controller-manager", "/controller_manager"],
+    )
+
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
@@ -55,7 +61,8 @@ def generate_launch_description():
     nodes_to_start = [
         control_node,
         joint_state_broadcaster_spawner,
-        forward_position_controller_spawner,
+        # forward_position_controller_spawner,
+        arm_controller_spawner,
         robot_state_publisher_node
     ]
 

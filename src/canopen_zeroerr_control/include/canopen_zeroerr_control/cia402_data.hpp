@@ -153,7 +153,7 @@ struct Cia402Data
 
   void write_target()
   {
-    target_position = (target_position / ZEROERR_RADIANS_PER_COUNT) + ZEROERR_ZERO_POINT;
+    target_position = (target_position) + (ZEROERR_ZERO_POINT * ZEROERR_RADIANS_PER_COUNT);
     const uint16_t & mode = driver->get_mode();
     switch (mode)
     {

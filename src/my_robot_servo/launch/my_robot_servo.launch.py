@@ -9,7 +9,10 @@ from launch.actions import ExecuteProcess
 from launch_param_builder import ParameterBuilder
 import xacro
 from moveit_configs_utils import MoveItConfigsBuilder
-
+from launch.substitutions import PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def load_file(package_name, file_path):
     package_path = get_package_share_directory(package_name)
@@ -68,36 +71,43 @@ def generate_launch_description():
         ],
     )
 
-    # ros2_control using FakeSystem as hardware
-    ros2_controllers_path = os.path.join(
-        get_package_share_directory("my_robot_moveit_config"),
-        "config",
-        "ros2_controllers.yaml",
-    )
-    ros2_control_node = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[moveit_config.robot_description, ros2_controllers_path],
-        output="screen",
+    robot_hw_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [PathJoinSubstitution([FindPackageShare("my_robot_canopen_control"), "launch", "robot_control.launch.py"])],
+        ),
     )
 
-    joint_state_broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=[
-            "joint_state_broadcaster",
-            "--controller-manager-timeout",
-            "300",
-            "--controller-manager",
-            "/controller_manager",
-        ],
-    )
 
-    arm_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["arm_controller", "-c", "/controller_manager"],
-    )
+    # # ros2_control using FakeSystem as hardware
+    # ros2_controllers_path = os.path.join(
+    #     get_package_share_directory("my_robot_moveit_config"),
+    #     "config",
+    #     "ros2_controllers.yaml",
+    # )
+    # ros2_control_node = Node(
+    #     package="controller_manager",
+    #     executable="ros2_control_node",
+    #     parameters=[moveit_config.robot_description, ros2_controllers_path],
+    #     output="screen",
+    # )
+
+    # joint_state_broadcaster_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=[
+    #         "joint_state_broadcaster",
+    #         "--controller-manager-timeout",
+    #         "300",
+    #         "--controller-manager",
+    #         "/controller_manager",
+    #     ],
+    # )
+
+    # arm_controller_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["arm_controller", "-c", "/controller_manager"],
+    # )
 
     # Launch as much as possible in components
     container = ComposableNodeContainer(
@@ -118,12 +128,12 @@ def generate_launch_description():
             #         moveit_config.robot_description_semantic,
             #     ],
             # ),
-            ComposableNode(
-                package="robot_state_publisher",
-                plugin="robot_state_publisher::RobotStatePublisher",
-                name="robot_state_publisher",
-                parameters=[moveit_config.robot_description],
-            ),
+            # ComposableNode(
+            #     package="robot_state_publisher",
+            #     plugin="robot_state_publisher::RobotStatePublisher",
+            #     name="robot_state_publisher",
+            #     parameters=[moveit_config.robot_description],
+            # ),
             ComposableNode(
                 package="tf2_ros",
                 plugin="tf2_ros::StaticTransformBroadcasterNode",
@@ -160,10 +170,11 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
+            robot_hw_node,
             rviz_node,
-            ros2_control_node,
-            joint_state_broadcaster_spawner,
-            arm_controller_spawner,
+            # ros2_control_node,
+            # joint_state_broadcaster_spawner,
+            # arm_controller_spawner,
             servo_node,
             container,
         ]

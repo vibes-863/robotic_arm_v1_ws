@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotic_arm">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="robotic_arm_v1">
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
 
-    <!-- Import robotic_arm urdf file -->
-    <xacro:include filename="$(find my_robot_description)/urdf/robotic_arm.xacro" />
+    <xacro:include filename="$(find my_robot_description)/urdf/robotic_arm.xacro"/>
+    <xacro:include filename="$(find my_robot_canopen_control)/urdf/robotic_arm.ros2_control.xacro"/>
 
-    <!-- Import control_xacro -->
-    <xacro:include filename="robotic_arm.ros2_control.xacro" />
-
-
-    <xacro:robotic_arm_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
-
+    <xacro:robot_control_control
+        name="robotic_arm_v1"
+        bus_config="$(find my_robot_canopen_control)/config/robot_control/bus.yml"
+        master_config="$(find my_robot_canopen_control)/config/robot_control/master.dcf"
+        can_interface_name="can0"
+        master_bin="" 
+        initial_positions_file="$(arg initial_positions_file)"/>
 </robot>

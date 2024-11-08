@@ -5,8 +5,9 @@
       bus_config
       master_config
       can_interface_name
-      master_bin">
-
+      master_bin
+      initial_positions_file">
+        <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
         <ros2_control name="${name}" type="system">
             <hardware>
               <plugin>canopen_zeroerr_control/CanopenZeroerrControlHardware</plugin>
@@ -17,19 +18,42 @@
             </hardware>
             <joint name="shoulder_link_to_taco">
                 <param name="device_name">shoulder_link_to_taco</param>
-                <state_interface name="position" />
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['shoulder_link_to_taco']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">0.0</param>
+                </state_interface> 
             </joint>
             <joint name="elbow_link_to_shoulder_link">
                 <param name="device_name">elbow_link_to_shoulder_link</param>
-                <state_interface name="position" />
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['elbow_link_to_shoulder_link']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">0.0</param>
+                </state_interface> 
             </joint>
             <joint name="bevel_housing_to_elbow_link">
                 <param name="device_name">bevel_housing_to_elbow_link</param>
-                <state_interface name="position" />
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['bevel_housing_to_elbow_link']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">0.0</param>
+                </state_interface> 
             </joint>
             <joint name="wrist_link_to_bevel_housing">
                 <param name="device_name">wrist_link_to_bevel_housing</param>
-                <state_interface name="position" />
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['wrist_link_to_bevel_housing']}</param>
+                </state_interface>
+                <state_interface name="velocity">
+                  <param name="initial_value">0.0</param>
+                </state_interface>  
             </joint>
         </ros2_control>
     </xacro:macro>
