@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="robot_control_control" params="
+      name
+      bus_config
+      master_config
+      can_interface_name
+      master_bin">
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+              <plugin>canopen_zeroerr_control/CanopenZeroerrControlHardware</plugin>
+              <param name="bus_config">${bus_config}</param>
+              <param name="master_config">${master_config}</param>
+              <param name="can_interface_name">${can_interface_name}</param>
+              <param name="master_bin">"${master_bin}"</param>
+            </hardware>
+            <joint name="shoulder_link_to_taco">
+                <param name="device_name">shoulder_link_to_taco</param>
+                <state_interface name="position" />
+            </joint>
+            <joint name="elbow_link_to_shoulder_link">
+                <param name="device_name">elbow_link_to_shoulder_link</param>
+                <state_interface name="position" />
+            </joint>
+            <joint name="bevel_housing_to_elbow_link">
+                <param name="device_name">bevel_housing_to_elbow_link</param>
+                <state_interface name="position" />
+            </joint>
+            <joint name="wrist_link_to_bevel_housing">
+                <param name="device_name">wrist_link_to_bevel_housing</param>
+                <state_interface name="position" />
+            </joint>
+        </ros2_control>
+    </xacro:macro>
+</robot>
