@@ -10,27 +10,27 @@ default_acceleration_scaling_factor: 0.1
 joint_limits:
   taco_to_base_link:
     has_velocity_limits: true
-    max_velocity: 2.1750
+    max_velocity: 6.0
     has_acceleration_limits: false
     max_acceleration: 0
   shoulder_link_to_taco:
     has_velocity_limits: true
-    max_velocity: 2.1750
+    max_velocity: 6.0
     has_acceleration_limits: false
     max_acceleration: 0
   elbow_link_to_shoulder_link:
     has_velocity_limits: true
-    max_velocity: 2.1750
+    max_velocity: 6.0
     has_acceleration_limits: false
     max_acceleration: 0
   bevel_housing_to_elbow_link:
     has_velocity_limits: true
-    max_velocity: 2.1750
+    max_velocity: 6.0
     has_acceleration_limits: false
     max_acceleration: 0
   wrist_link_to_bevel_housing:
     has_velocity_limits: true
-    max_velocity: 2.1750
+    max_velocity: 6.0
     has_acceleration_limits: false
     max_acceleration: 0
   moving_claw_to_end_effector_base:

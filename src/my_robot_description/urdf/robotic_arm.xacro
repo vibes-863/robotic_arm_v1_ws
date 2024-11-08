@@ -87,7 +87,7 @@
     <parent link="taco_1"/>
     <child link="shoulder_link_1"/>
     <axis xyz="-1.0 -0.0 -0.0"/>
-    <limit upper="1.637119" lower="-0.261799" effort="100" velocity="1.0"/>
+    <limit upper="3.14" lower="-3.14" effort="100" velocity="1.0"/>
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
 
@@ -117,7 +117,7 @@
     <parent link="shoulder_link_1"/>
     <child link="elbow_link_1"/>
     <axis xyz="-1.0 0.0 -0.0"/>
-    <limit upper="0.959931" lower="-1.047198" effort="100" velocity="1.0"/>
+    <limit upper="3.14" lower="-3.14" effort="100" velocity="1.0"/>
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
 
@@ -147,7 +147,7 @@
     <parent link="elbow_link_1"/>
     <child link="bevel_housing_1"/>
     <axis xyz="-1.0 0.0 -0.0"/>
-    <limit upper="1.570796" lower="-1.570796" effort="100" velocity="1.0"/>
+    <limit upper="3.14" lower="-3.14" effort="100" velocity="1.0"/>
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
 
@@ -177,7 +177,7 @@
     <parent link="bevel_housing_1"/>
     <child link="wrist_link_1"/>
     <axis xyz="0.0 -0.1 0.0"/>
-    <limit upper="3.141593" lower="0.0" effort="100" velocity="1.0"/>
+    <limit upper="3.141593" lower="-3.14" effort="100" velocity="1.0"/>
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
 
