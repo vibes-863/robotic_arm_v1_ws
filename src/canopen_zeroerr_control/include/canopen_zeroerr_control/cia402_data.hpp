@@ -51,6 +51,10 @@ struct Cia402Data
   double target_velocity = std::numeric_limits<double>::quiet_NaN();
   double target_torque = std::numeric_limits<double>::quiet_NaN();
 
+  static constexpr uint32_t ZEROERR_COUNTS_PER_REV = 524288;
+  static constexpr uint32_t ZEROERR_ZERO_POINT = 262144;
+  static constexpr double ZEROERR_RADIANS_PER_COUNT = 2.0 * M_PI / ZEROERR_COUNTS_PER_REV;
+
   bool init_data(hardware_interface::ComponentInfo & joint, std::string device_dump)
   {
     joint_name = joint.name;
@@ -143,12 +147,13 @@ struct Cia402Data
 
   void read_state()
   {
-    actual_position = driver->get_position();
+    actual_position = driver->get_position() - (ZEROERR_ZERO_POINT * ZEROERR_RADIANS_PER_COUNT);
     actual_velocity = driver->get_speed();
   }
 
   void write_target()
   {
+    target_position = (target_position / ZEROERR_RADIANS_PER_COUNT) + ZEROERR_ZERO_POINT;
     const uint16_t & mode = driver->get_mode();
     switch (mode)
     {
