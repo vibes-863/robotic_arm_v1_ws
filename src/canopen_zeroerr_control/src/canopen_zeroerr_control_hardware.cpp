@@ -140,11 +140,15 @@ hardware_interface::CallbackReturn CanopenZeroerrControlHardware::on_activate(
 {
   for (auto & data : robot_motor_data_)
   {
-    if (!data.driver->init_motor())
+    RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "INITIALIZING '%s'", data.joint_name.c_str());
+
+    while(!data.driver->init_motor())
     {
-      RCLCPP_ERROR(canopen_zeroerr_control_hardware_logger, "Failed to activate '%s'", data.joint_name.c_str());
-      return CallbackReturn::FAILURE;
+      continue;
     }
+    RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "INITIALIZED '%s'", data.joint_name.c_str());
+
+    RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "SUCCESSFULLY ACTIVATED '%s'", data.joint_name.c_str());
   }
   return CallbackReturn::SUCCESS;
 }
