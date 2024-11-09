@@ -17,7 +17,7 @@ controller_manager:
 arm_controller:
   ros__parameters:
     joints:
-      - taco_to_base_link
+      # - taco_to_base_link
       - shoulder_link_to_taco
       - elbow_link_to_shoulder_link
       - bevel_housing_to_elbow_link
