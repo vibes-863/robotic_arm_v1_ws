@@ -117,7 +117,7 @@
     <parent link="shoulder_link_1"/>
     <child link="elbow_link_1"/>
     <axis xyz="-1.0 0.0 -0.0"/>
-    <limit upper="3.14" lower="-3.14" effort="100" velocity="1.0"/>
+    <limit upper="3.14" lower="-1.57" effort="100" velocity="1.0"/>
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
 
