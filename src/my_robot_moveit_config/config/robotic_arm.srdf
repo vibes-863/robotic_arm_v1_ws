@@ -33,6 +33,13 @@
         <joint name="bevel_housing_to_elbow_link" value="0"/>
         <joint name="wrist_link_to_bevel_housing" value="0"/>
     </group_state>
+    <group_state name="pen_position_1" group="arm">
+        <joint name="taco_to_base_link" value="0.0"/>
+        <joint name="shoulder_link_to_taco" value="-0.28008332154209326"/>
+        <joint name="elbow_link_to_shoulder_link" value="0.7966393645984069"/>
+        <joint name="bevel_housing_to_elbow_link" value="-1.5135237166998932"/>
+        <joint name="wrist_link_to_bevel_housing" value="-0.0013422345929932078"/>
+    </group_state>
     <group_state name="open" group="gripper">
         <joint name="moving_claw_to_end_effector_base" value="0.25"/>
     </group_state>
