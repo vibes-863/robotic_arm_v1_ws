@@ -255,7 +255,7 @@ void Motor402::handleRead() { readState(); }
 void Motor402::handleWrite()
 {
   std::scoped_lock lock(cw_mutex_);
-  control_word_ |= (1 << Command402::CW_Halt);
+  // control_word_ |= (1 << Command402::CW_Halt);
   if (state_handler_.getState() == State402::Operation_Enable)
   {
     std::scoped_lock lock(mode_mutex_);
@@ -355,6 +355,10 @@ bool Motor402::handleInit()
   {
     (it->second)();
   }
+  switchMode(8);
+  uint32_t actual_position = driver->universal_get_value<uint32_t>(0x6064, 0x0);
+  driver->universal_set_value<uint32_t>(0x607A, 0x00, actual_position);
+
   RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Read State");
   if (!readState())
   {
@@ -364,7 +368,7 @@ bool Motor402::handleInit()
   {
     std::scoped_lock lock(cw_mutex_);
     control_word_ = 0;
-    start_fault_reset_ = true;
+    start_fault_reset_ = false;
   }
   RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Enable");
   if (!switchState(State402::Operation_Enable))
@@ -373,38 +377,38 @@ bool Motor402::handleInit()
     return false;
   }
 
-  ModeSharedPtr m = allocMode(MotorBase::Homing);
-  if (!m)
-  {
-    std::cout << "Homeing mode not supported" << std::endl;
-    return true;  // homing not supported
-  }
+  // ModeSharedPtr m = allocMode(MotorBase::Homing);
+  // if (!m)
+  // {
+  //   std::cout << "Homeing mode not supported" << std::endl;
+  //   return true;  // homing not supported
+  // }
 
-  HomingMode * homing = dynamic_cast<HomingMode *>(m.get());
+  // HomingMode * homing = dynamic_cast<HomingMode *>(m.get());
 
-  if (!homing)
-  {
-    std::cout << "Homing mode has incorrect handler" << std::endl;
-    return false;
-  }
-  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Switch to homing");
-  if (!switchMode(MotorBase::Homing))
-  {
-    std::cout << "Could not enter homing mode" << std::endl;
-    return false;
-  }
-  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Execute homing");
-  if (!homing->executeHoming())
-  {
-    std::cout << "Homing failed" << std::endl;
-    return false;
-  }
-  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Switch no mode");
-  if (!switchMode(MotorBase::No_Mode))
-  {
-    std::cout << "Could not enter no mode" << std::endl;
-    return false;
-  }
+  // if (!homing)
+  // {
+  //   std::cout << "Homing mode has incorrect handler" << std::endl;
+  //   return false;
+  // }
+  // RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Switch to homing");
+  // if (!switchMode(MotorBase::Homing))
+  // {
+  //   std::cout << "Could not enter homing mode" << std::endl;
+  //   return false;
+  // }
+  // RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Execute homing");
+  // if (!homing->executeHoming())
+  // {
+  //   std::cout << "Homing failed" << std::endl;
+  //   return false;
+  // }
+  // RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Switch no mode");
+  // if (!switchMode(MotorBase::No_Mode))
+  // {
+  //   std::cout << "Could not enter no mode" << std::endl;
+  //   return false;
+  // }
   return true;
 }
 bool Motor402::handleShutdown()
